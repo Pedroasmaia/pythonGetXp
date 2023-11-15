@@ -1,0 +1,2 @@
+INSERT INTO books (code,name,author) VALUES
+(1,'O NOME DO VENTO','PATRICK ROTHFUSS')
