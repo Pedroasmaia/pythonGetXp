@@ -13,7 +13,15 @@ try:
 except Exception as e:
     print(f'Falha ao se conectar no banco: {e}')
 
-
+def all_books():
+    cursor = connection.cursor()
+    cursor.execute(f"SELECT * FROM books")
+    response = cursor.fetchall()
+    print('Livros do Autor')
+    print('ID | Nome | Autor')
+    print('-----------------------------------')
+    for a in response:
+        print(f' {a[0]} | {a[1]} | {a[2]} ')
 
 def register_book():
     cursor = connection.cursor()
@@ -41,7 +49,6 @@ def register_book():
         cursor.close()
 
 
-
 def search_author(author_name):
     cursor = connection.cursor()
     cursor.execute(f"SELECT * FROM books WHERE author = '{author_name.title()}'")
@@ -51,12 +58,33 @@ def search_author(author_name):
     print('---------')
     for a in response:
         print(f' {a[0]} | {a[1]} ')
+    return a
+    
 
-print('------------------------------\n 1- Registrar Livro \n 2- Pesquisar Por Autor\n------------------------------')
-choice = int(input('Escolha sua opção: '))
-if choice == 1:
-    register_book()
-elif choice == 2:
-    author_name = input('Nome do Autor: ')
+def remove_book():
+    author_name = input('Nome do Autor do livro que quer remover: ')
     search_author(author_name)
+    cursor = connection.cursor()
+    i = int(input('Insira o id do livro que pretende apagar: '))
+    cursor.execute(f"DELETE FROM books WHERE book_id = {i};")
+    connection.commit()
+
+print('------------------------------\n 1- Registrar Livro \n 2- Pesquisar Por Autor\n 3- Remover Livro\n 4- Sair\n 5- Ver Todos Os Livros\n------------------------------')
+choice = int(input('Escolha sua opção: '))
+while True:
+    if choice == 1:
+        register_book()
+        break
+    elif choice == 2:
+        author_name = input('Nome do Autor: ')
+        search_author(author_name)
+        break
+    elif choice == 3:
+        remove_book()
+        break
+    elif choice == 4:
+        break
+    elif choice == 5:
+        all_books()
+        break
 connection.close()
