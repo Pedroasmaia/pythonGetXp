@@ -11,7 +11,6 @@ def is_anagram(test, original):
             else:
                 anagram = False
                 return anagram
-                break
         return anagram
     else:
         return anagram

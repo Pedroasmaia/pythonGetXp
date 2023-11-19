@@ -1,10 +1,11 @@
 import pyodbc
+import os
 
 # Substitua as informações de conexão com as suas configurações
 server = 'localhost'
 database = 'alexander'
-username = 'sa'
-password = 'Tests@python'
+username = os.getenv("Username  ")
+password = os.getenv("Password")
 
 connection_str = f'DRIVER={{SQL Server}};SERVER={server};DATABASE={database};UID={username};PWD={password}'
 
