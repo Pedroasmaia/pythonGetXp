@@ -13,7 +13,7 @@ Parameters:
   domain(string): Domínio que será validado na conexão
 
 Returns:
-  registryData(dict): Dicionário com as informações de registro do dominio
+  registry_data(dict): Dicionário com as informações de registro do dominio
 
   '''
   api_key = os.getenv('pass')
@@ -24,22 +24,22 @@ Returns:
     return None
   response = free_domain.json()
   response = response['WhoisRecord']
-  registryData = response['registryData']
-  return registryData
+  registry_data = response['registryData']
+  return registry_data
 
-registryData = api_info(domain)
+registry_data = api_info(domain)
 
 
-def analisys_response(registryData):
+def analisys_response(registry_data):
   '''A Função analiza se o dominio já foi registrado baseado na resposta da conexão
 
 Parameters:
-  registryData(dict): Dicionário com as informações de registro do dominio
+  registry_data(dict): Dicionário com as informações de registro do dominio
 
   '''
-  if 'No match for' in registryData['rawText']:
+  if 'No match for' in registry_data['rawText']:
     print(f'O Domínio {domain} está disponivel')
   else:
     print(f'O Domínio {domain} não está disponivel')
 
-analisys_response(registryData)
+analisys_response(registry_data)
