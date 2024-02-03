@@ -9,3 +9,5 @@ ultima_compra = datetime(2023,5,10)
 agora = datetime.now()
 intervalo_compras =  agora - timedelta(days=ultima_compra.day)
 print(intervalo_compras.day)
+
+

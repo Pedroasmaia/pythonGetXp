@@ -1,0 +1,10 @@
+Nesse módulo vamos aprender a consumir e criar APIs (Application Programming Interface) usando o requests, o flask e outras ferramentas.
+
+Para isso vamos usar muitas estruturas da "Base do Python", que é importante que você domine antes de começar esse módulo. 
+
+Por isso, recomendamos muito que antes desse módulo tenha assistido:
+- Todos os módulos até o módulo "Functions usadas como parâmetro e Expressões Lambda", que é a "base geral do Python"
+
+Se você tentar fazer esse módulo sem essa base é possível que fique perdido em algumas coisas desse módulo.
+
+Caso já tenha feito os pré-requisitos citados, pode começar esse módulo sem receio, tudo vai estar explicado bem passo a passo.
