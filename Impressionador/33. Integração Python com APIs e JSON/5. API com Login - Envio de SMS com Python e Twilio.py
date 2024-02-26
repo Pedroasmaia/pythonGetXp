@@ -3,8 +3,8 @@ import os
 from twilio.rest import Client
 
 
-account_id = 'AC5c52b5d9fa32088f70d66c823b6acab8'
-token = 'a8f205992ed89496d65494c816943b96'
+account_id = 'minha_id'
+token = 'meu_token'
 
 client = Client(account_id, token)
 
